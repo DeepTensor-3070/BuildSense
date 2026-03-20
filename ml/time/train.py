@@ -38,7 +38,7 @@ def generate_timeline_data(n=100000):
 # Generate data
 df = generate_timeline_data()
 
-# 🔥 Better feature engineering
+# Better feature engineering
 df["complexity"] = (
     df["floors"] * 1.5 +
     df["area"] / 8000 +

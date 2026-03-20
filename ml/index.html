@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>BuildSense AI v4.0 — Ultimate Platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>BuildSense AI v4.0 — Ultimate Platform</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
       :root {
         --bg: #04080f;
@@ -1279,128 +1282,11 @@
         animation: fadeUp 0.35s ease forwards;
       }
     </style>
-    <style>
-      /* ─── AI KEY INPUT ─── */
-      .key-box {
-        background: var(--s2);
-        border: 1px solid var(--border);
-        border-radius: 9px;
-        padding: 11px;
-      }
-      .key-box input {
-        width: 100%;
-        font-size: 11px;
-        padding: 6px 10px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--mono);
-        outline: none;
-        margin-bottom: 5px;
-      }
-      .key-box input:focus { border-color: rgba(0,229,255,0.35); }
-      .key-status { font-size: 9px; font-family: var(--mono); color: var(--dim); }
-      /* ─── AI INSIGHTS PANEL ─── */
-      .insights-panel {
-        background: var(--s1);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 14px;
-      }
-      .insights-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-      }
-      .insights-label {
-        font-size: 9px; font-weight: 700; font-family: var(--mono);
-        color: var(--muted); text-transform: uppercase; letter-spacing: .12em;
-        display: flex; align-items: center; gap: 7px;
-      }
-      .gen-btn {
-        padding: 4px 13px;
-        background: linear-gradient(135deg, var(--cyan), var(--cyan2));
-        color: #04080f; border: none; border-radius: 20px;
-        font-size: 10px; font-weight: 700; cursor: pointer;
-        font-family: var(--font); transition: all .2s;
-      }
-      .gen-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,229,255,.3); }
-      .gen-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
-      .insight-card {
-        border-radius: 9px;
-        padding: 11px 14px;
-        margin-bottom: 8px;
-        border-left: 3px solid;
-      }
-      .insight-card:last-child { margin-bottom: 0; }
-      .insight-type {
-        font-size: 9px; font-family: var(--mono); font-weight: 700;
-        text-transform: uppercase; letter-spacing: .1em; margin-bottom: 4px;
-      }
-      .insight-title { font-size: 11px; font-weight: 700; margin-bottom: 4px; color: var(--text); }
-      .insight-body  { font-size: 11px; color: rgba(226,234,246,.78); line-height: 1.65; margin-bottom: 6px; }
-      .insight-action { font-size: 10px; font-weight: 600; cursor: pointer; }
-      /* ─── AI EXPLAIN DRAWER ─── */
-      .ai-drawer {
-        position: fixed; right: 24px; top: 68px;
-        width: 360px; max-height: calc(100vh - 100px);
-        background: var(--s1); border: 1px solid var(--border2);
-        border-radius: 14px; padding: 16px; z-index: 600;
-        box-shadow: 0 20px 60px rgba(0,0,0,.75);
-        animation: fadeUp .3s ease;
-        overflow-y: auto;
-        scrollbar-width: thin;
-      }
-      .ai-drawer::-webkit-scrollbar { width: 3px; }
-      .ai-drawer::-webkit-scrollbar-thumb { background: var(--border2); }
-      .drawer-head {
-        display: flex; justify-content: space-between;
-        align-items: center; margin-bottom: 12px;
-      }
-      .drawer-title { font-size: 12px; font-weight: 700; }
-      .drawer-close {
-        width: 24px; height: 24px; border-radius: 6px;
-        background: var(--s2); border: 1px solid var(--border);
-        color: var(--muted); cursor: pointer; font-size: 14px;
-        display: flex; align-items: center; justify-content: center;
-        transition: all .2s;
-      }
-      .drawer-close:hover { color: var(--text); border-color: var(--border2); }
-      .drawer-section { margin-bottom: 10px; }
-      .drawer-lbl {
-        font-size: 9px; font-family: var(--mono); font-weight: 700;
-        text-transform: uppercase; letter-spacing: .1em;
-        margin-bottom: 5px;
-      }
-      .drawer-text { font-size: 11px; color: rgba(226,234,246,.78); line-height: 1.65; }
-      .drawer-card {
-        padding: 9px 11px; border-radius: 8px;
-        background: var(--s2); border: 1px solid var(--border);
-        margin-bottom: 6px; font-size: 11px;
-      }
-      .drawer-card-head {
-        display: flex; justify-content: space-between;
-        margin-bottom: 4px; align-items: center;
-      }
-      .dim-bar { height: 2px; border-radius: 1px; margin: 4px 0 5px; }
-      .tag-pill {
-        font-size: 9px; font-family: var(--mono); padding: 2px 7px;
-        border-radius: 10px; border: 1px solid;
-      }
-      /* hcard AI button */
-      .hcard-ai {
-        margin-top: 6px; font-size: 9px; font-weight: 700;
-        font-family: var(--mono); cursor: pointer;
-        opacity: .65; transition: opacity .2s; letter-spacing: .04em;
-      }
-      .hcard-ai:hover { opacity: 1; }
-    </style>
   </head>
   <body>
     <canvas id="bgCanvas"></canvas>
     <div class="shell">
+      <!-- ══ NAV ══ -->
       <div class="nav">
         <div class="nav-brand">
           <div class="nav-icon">
@@ -1540,7 +1426,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- /ticker -->
+          </div>
 
           <div class="est-wrap">
             <div class="sidebar">
@@ -1668,68 +1554,133 @@
               >
                 Run AI Analysis
               </button>
+            </div>
 
-            </div><!-- /sidebar -->
-
-            <div style="display:flex;flex-direction:column;gap:12px">
-
-              <!-- ═══ AI INSIGHTS PANEL (GPT-4o) ═══ -->
-              <div class="insights-panel">
-                <div class="insights-header">
-                  <div class="insights-label">
-                    <span style="width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);display:inline-block;animation:dot 2s infinite;"></span>
-                    GPT-4o · AI Proactive Insights
-                  </div>
-                  <button class="gen-btn" id="insightBtn" onclick="triggerInsights()">✦ Generate</button>
+            <div style="display: flex; flex-direction: column; gap: 12px">
+              <!-- WARN -->
+              <div
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgba(255, 109, 0, 0.06),
+                    rgba(255, 109, 0, 0.02)
+                  );
+                  border: 1px solid rgba(255, 109, 0, 0.22);
+                  border-left: 3px solid var(--orange);
+                  border-radius: 10px;
+                  padding: 11px 14px;
+                  display: flex;
+                  gap: 11px;
+                "
+              >
+                <div style="font-size: 18px; flex-shrink: 0; margin-top: 1px">
+                  ⚠
                 </div>
-                <div id="insightContent">
-                  <!-- static fallback shown until GPT-4o generates -->
-                  <div class="insight-card" style="border-color:var(--orange);background:rgba(255,109,0,.05);">
-                    <div class="insight-type" style="color:var(--orange);">⚠ Warning · Baseline</div>
-                    <div class="insight-title">Foundation Overrun Risk Elevated</div>
-                    <div class="insight-body">Alluvial soil detected — foundation overrun risk <b>38%</b>. Geotechnical survey as Phase 0 (est. ₹1.2–1.8L) saves 9–14% on structural costs per IS 1904:1986.</div>
-                    <div class="insight-action" style="color:var(--orange);" onclick="fillQ('What geotechnical tests do I need before foundation work?')">→ Add geo survey to project plan</div>
+                <div>
+                  <div
+                    style="
+                      font-size: 10px;
+                      font-weight: 700;
+                      font-family: var(--mono);
+                      color: var(--orange);
+                      margin-bottom: 3px;
+                    "
+                  >
+                    AI PROACTIVE INSIGHT — Urban Residential · North India
                   </div>
-                  <div style="font-size:10px;color:var(--dim);font-family:var(--mono);text-align:center;padding:6px 0;">
-                    Enter your OpenAI key in the chatbot sidebar → click Generate for live AI insights
+                  <div
+                    style="
+                      font-size: 11px;
+                      color: rgba(255, 109, 0, 0.7);
+                      line-height: 1.6;
+                    "
+                  >
+                    Foundation overrun risk <b>elevated (38%)</b> — alluvial
+                    soil detected. Geotechnical survey as Phase 0 (est.
+                    ₹1.2–1.8L) saves 9–14% on structural costs. Monsoon window
+                    Jun–Sep will delay excavation without covered staging.
+                  </div>
+                  <div
+                    style="
+                      font-size: 10px;
+                      color: var(--cyan);
+                      cursor: pointer;
+                      margin-top: 5px;
+                      font-weight: 600;
+                    "
+                  >
+                    → Accept and add to project plan
                   </div>
                 </div>
               </div>
 
               <div class="exp-row">
-                <button class="exp" onclick="alert('PDF exported: BuildSense_Estimate_v4.pdf')">⬇ PDF Report</button>
-                <button class="exp" onclick="alert('CSV exported: cost_breakdown.csv')">⬇ Cost CSV</button>
-                <button class="exp p" onclick="page('chat',document.querySelectorAll('.ntab')[1])">Ask AI →</button>
+                <button
+                  class="exp"
+                  onclick="alert('PDF exported: BuildSense_Estimate_v4.pdf')"
+                >
+                  ⬇ PDF Report
+                </button>
+                <button
+                  class="exp"
+                  onclick="alert('CSV exported: cost_breakdown.csv')"
+                >
+                  ⬇ Cost CSV
+                </button>
+                <button
+                  class="exp p"
+                  onclick="page('chat', document.querySelectorAll('.ntab')[1])"
+                >
+                  Ask AI →
+                </button>
               </div>
 
-              <!-- HEALTH CARDS — with GPT-4o drill-down buttons -->
+              <!-- HEALTH SCORE -->
               <div class="health-row">
                 <div class="hcard g">
-                  <div class="hcard-glow" style="background:var(--green)"></div>
+                  <div
+                    class="hcard-glow"
+                    style="background: var(--green)"
+                  ></div>
                   <div class="hcard-lbl">Total Cost</div>
-                  <div class="hcard-val" id="hC" style="color:var(--cyan)">₹2.4Cr</div>
-                  <div class="hcard-sub" style="color:var(--green)">93% confidence</div>
-                  <div class="hcard-ai" style="color:var(--cyan);" onclick="openDrawer('cost')">💰 GPT-4o Cost Analysis ›</div>
+                  <div class="hcard-val" id="hC" style="color: var(--cyan)">
+                    ₹2.4Cr
+                  </div>
+                  <div class="hcard-sub" style="color: var(--green)">
+                    93% confidence
+                  </div>
                 </div>
                 <div class="hcard g">
-                  <div class="hcard-glow" style="background:var(--cyan)"></div>
+                  <div class="hcard-glow" style="background: var(--cyan)"></div>
                   <div class="hcard-lbl">Duration</div>
-                  <div class="hcard-val" id="hD" style="color:var(--text)">18 mo</div>
+                  <div class="hcard-val" id="hD" style="color: var(--text)">
+                    18 mo
+                  </div>
                   <div class="hcard-sub">Jun 25 – Dec 26</div>
-                  <div class="hcard-ai" style="color:var(--violet);" onclick="openDrawer('timeline')">⏱ GPT-4o Timeline ›</div>
                 </div>
                 <div class="hcard w">
-                  <div class="hcard-glow" style="background:var(--orange)"></div>
+                  <div
+                    class="hcard-glow"
+                    style="background: var(--orange)"
+                  ></div>
                   <div class="hcard-lbl">Peak Workforce</div>
-                  <div class="hcard-val" id="hW" style="color:var(--text)">48</div>
+                  <div class="hcard-val" id="hW" style="color: var(--text)">
+                    48
+                  </div>
                   <div class="hcard-sub">engineers + labour</div>
                 </div>
                 <div class="hcard w">
-                  <div class="hcard-glow" style="background:var(--orange)"></div>
+                  <div
+                    class="hcard-glow"
+                    style="background: var(--orange)"
+                  ></div>
                   <div class="hcard-lbl">Overrun Risk</div>
-                  <div class="hcard-val" id="hR" style="color:var(--orange)">22%</div>
-                  <div class="hcard-sub" style="color:var(--orange)">Monitor closely</div>
-                  <div class="hcard-ai" style="color:var(--orange);" onclick="openDrawer('risk')">🛡 GPT-4o Risk Drill ›</div>
+                  <div class="hcard-val" id="hR" style="color: var(--orange)">
+                    22%
+                  </div>
+                  <div class="hcard-sub" style="color: var(--orange)">
+                    Monitor closely
+                  </div>
                 </div>
               </div>
 
@@ -1960,92 +1911,156 @@
               </div>
             </div>
           </div>
-            </div><!-- /main column -->
-          </div><!-- /est-wrap -->
-        </div><!-- /page-est -->
+        </div>
 
-        <!-- ════════════════════ CHATBOT (GPT-4o) ════════════════════ -->
+        <!-- ════════════════════ CHATBOT ════════════════════ -->
         <div class="page" id="page-chat">
           <div class="chat-wrap">
-
-            <!-- Sidebar -->
             <div class="chat-side">
               <div class="s-label">Project context</div>
               <div class="ctx-box">
-                <div class="ctx-row"><span class="ctx-k">Area</span><span class="ctx-v" id="ctx-area">8,000 sqft</span></div>
-                <div class="ctx-row"><span class="ctx-k">Floors</span><span class="ctx-v" id="ctx-floors">4</span></div>
-                <div class="ctx-row"><span class="ctx-k">Material</span><span class="ctx-v" id="ctx-mat">Concrete</span></div>
-                <div class="ctx-row"><span class="ctx-k">Location</span><span class="ctx-v" id="ctx-loc">Urban</span></div>
-                <div class="ctx-row"><span class="ctx-k">Cost</span><span class="ctx-v" id="ctx-cost" style="color:var(--cyan)">₹2.4Cr</span></div>
-                <div class="ctx-row"><span class="ctx-k">Risk</span><span class="ctx-v" id="ctx-risk" style="color:var(--orange)">22%</span></div>
-                <div class="ctx-row"><span class="ctx-k">DCS</span><span class="ctx-v" id="ctx-dcs" style="color:var(--green)">78/100</span></div>
-              </div>
-
-              <!-- OpenAI Key -->
-              <div class="key-box">
-                <div style="font-size:9px;font-weight:700;font-family:var(--mono);color:var(--cyan);margin-bottom:6px;display:flex;align-items:center;gap:5px;">
-                  🔑 OpenAI API Key
+                <div class="ctx-row">
+                  <span class="ctx-k">Type</span
+                  ><span class="ctx-v">Residential</span>
                 </div>
-                <input id="apiKeyInput" type="password" placeholder="sk-..." oninput="onKeyChange()" autocomplete="off"/>
-                <div class="key-status" id="keyStatus">Paste key — session only, never stored</div>
+                <div class="ctx-row">
+                  <span class="ctx-k">Area</span
+                  ><span class="ctx-v">8,000 sq ft</span>
+                </div>
+                <div class="ctx-row">
+                  <span class="ctx-k">Floors</span><span class="ctx-v">4</span>
+                </div>
+                <div class="ctx-row">
+                  <span class="ctx-k">Material</span
+                  ><span class="ctx-v">Concrete</span>
+                </div>
+                <div class="ctx-row">
+                  <span class="ctx-k">Location</span
+                  ><span class="ctx-v">Urban</span>
+                </div>
+                <div class="ctx-row">
+                  <span class="ctx-k">DCS</span
+                  ><span class="ctx-v" style="color: var(--cyan)">78/100</span>
+                </div>
               </div>
-
               <div class="rag-on">
-                <div class="pulse-dot pd-cyan" style="background:var(--green);box-shadow:0 0 5px var(--green);"></div>
-                GPT-4o · IS Codes · DSR 2023-24
+                <div
+                  class="pulse-dot pd-cyan"
+                  style="
+                    background: var(--green);
+                    box-shadow: 0 0 5px var(--green);
+                  "
+                ></div>
+                RAG + IS Codes Active
               </div>
 
+              <!-- VOICE BUTTON -->
               <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()">
-                <span id="vBtnIcon">🎤</span><span id="vBtnTxt">Hold to Speak</span>
+                <span id="vBtnIcon">🎤</span>
+                <span id="vBtnTxt">Hold to Speak</span>
               </button>
               <div class="voice-wave" id="vWave">
-                <div class="vw-bar" style="height:8px"></div>
-                <div class="vw-bar"></div><div class="vw-bar"></div>
+                <div class="vw-bar" style="height: 8px"></div>
                 <div class="vw-bar"></div>
-                <div class="vw-bar" style="height:8px"></div>
-                <span class="voice-txt" style="margin-left:6px">Listening...</span>
+                <div class="vw-bar"></div>
+                <div class="vw-bar"></div>
+                <div class="vw-bar" style="height: 8px"></div>
+                <span class="voice-txt" style="margin-left: 6px"
+                  >Listening...</span
+                >
               </div>
 
               <div class="s-label">Suggested queries</div>
               <div class="sugg-list">
-                <div class="sugg" onclick="fillQ(this)">What IS code governs RCC foundations?</div>
-                <div class="sugg" onclick="fillQ(this)">How to cut project cost by 15%?</div>
-                <div class="sugg" onclick="fillQ(this)">Explain my DCS score</div>
-                <div class="sugg" onclick="fillQ(this)">Current TMT steel rates in North India?</div>
-                <div class="sugg" onclick="fillQ(this)">Best methods to handle monsoon delays?</div>
-                <div class="sugg" onclick="fillQ(this)">Compare concrete vs steel frame for 4 floors</div>
-                <div class="sugg" onclick="fillQ(this)">What are the IS 456:2000 cover requirements?</div>
+                <div class="sugg" onclick="fillQ(this)">
+                  What IS code governs RCC foundations?
+                </div>
+                <div class="sugg" onclick="fillQ(this)">
+                  How to cut project cost by 15%?
+                </div>
+                <div class="sugg" onclick="fillQ(this)">
+                  Explain my DCS score of 78/100
+                </div>
+                <div class="sugg" onclick="fillQ(this)">
+                  Current TMT steel rates in North India?
+                </div>
+                <div class="sugg" onclick="fillQ(this)">
+                  Best methods to handle monsoon delays?
+                </div>
+                <div class="sugg" onclick="fillQ(this)">
+                  Compare concrete vs steel frame for 4 floors
+                </div>
               </div>
-            </div><!-- /chat-side -->
+            </div>
 
-            <!-- Chat main -->
             <div class="chat-main">
               <div class="chat-bar">
                 <div class="chat-bar-title">
-                  <div style="width:28px;height:28px;background:linear-gradient(135deg,var(--cyan),var(--cyan2));border-radius:8px;display:flex;align-items:center;justify-content:center;">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2h10v8H8l-2 2V10H2V2z" fill="#04080f"/></svg>
+                  <div
+                    style="
+                      width: 28px;
+                      height: 28px;
+                      background: linear-gradient(
+                        135deg,
+                        var(--cyan),
+                        var(--cyan2)
+                      );
+                      border-radius: 8px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 2h10v8H8l-2 2V10H2V2z" fill="#04080f" />
+                    </svg>
                   </div>
                   BuildSense AI Chatbot
                 </div>
-                <div class="api-tag">GPT-4o · IS Codes Active</div>
+                <div class="api-tag">claude-sonnet-4-6 · RAG Active</div>
               </div>
 
               <div class="msgs" id="msgs">
                 <div class="msg a anim">
-                  <div class="mb">Hello! I'm BuildSense AI, powered by <strong>OpenAI GPT-4o</strong>. I have full context of your live project — area, floors, material, location, cost estimate, risk and DCS score sync automatically from the Estimator.<br><br>Paste your <strong>OpenAI API key</strong> in the sidebar, then type or use 🎤 voice. I cover IS 456:2000, IS 800, DSR 2023-24 rates, monsoon planning, structural best practices and material market intelligence.</div>
-                  <div class="mmeta">BuildSense AI · OpenAI GPT-4o</div>
-                  <span class="src-tag">IS Codes + DSR 2023-24 + Live Project Context loaded</span>
+                  <div class="mb">
+                    Hello! I'm BuildSense AI, powered by
+                    <strong>Anthropic Claude</strong>. I have full context of
+                    your project — 8,000 sq ft, 4-floor residential, concrete
+                    framing, urban North India, DCS 78/100.<br /><br />You can
+                    type or use <strong>voice input</strong> (🎤 button) to ask
+                    questions. My knowledge covers IS codes, DSR 2023-24 rates,
+                    monsoon planning, structural best practices, and material
+                    market intelligence.
+                  </div>
+                  <div class="mmeta">BuildSense AI · Anthropic API</div>
+                  <span class="src-tag"
+                    >IS Codes + DSR 2023-24 + Project DB loaded</span
+                  >
                 </div>
               </div>
 
               <div class="chat-input-row">
-                <button class="voice-mic" id="micBtn" onclick="toggleVoice()" title="Voice input">🎤</button>
-                <input class="chat-in" id="chatIn" placeholder="Ask about your project, IS codes, costs, risks..." onkeydown="if(event.key==='Enter')send();"/>
-                <button class="send-btn" id="sendBtn" onclick="send()">Send →</button>
+                <button
+                  class="voice-mic"
+                  id="micBtn"
+                  onclick="toggleVoice()"
+                  title="Voice input"
+                >
+                  🎤
+                </button>
+                <input
+                  class="chat-in"
+                  id="chatIn"
+                  placeholder="Type or use voice input..."
+                  onkeydown="if (event.key === 'Enter') send();"
+                />
+                <button class="send-btn" id="sendBtn" onclick="send()">
+                  Send →
+                </button>
               </div>
             </div>
           </div>
-        </div><!-- /page-chat -->
+        </div>
 
         <!-- ════════════════════ ANALYTICS ════════════════════ -->
         <div class="page" id="page-analytics">
@@ -2117,16 +2132,59 @@
 
       <!-- FOOT -->
       <div class="foot">
-        <div class="foot-l">BuildSense AI v4.0 · Ultimate Edition · OpenAI GPT-4o</div>
+        <div class="foot-l">
+          BuildSense AI v4.0 · Ultimate Edition · Hackathon 2026
+        </div>
         <div class="foot-pills">
-          <span class="fp" style="background:var(--cyan-g);color:var(--cyan);border-color:rgba(0,229,255,0.2);">OpenAI GPT-4o</span>
-          <span class="fp" style="background:var(--green-g);color:var(--green);border-color:rgba(0,230,118,0.2);">IS Codes + DSR 2023-24</span>
-          <span class="fp" style="background:var(--lime-g);color:var(--lime);border-color:rgba(178,255,89,0.2);">Voice Input</span>
-          <span class="fp" style="background:var(--orange-g);color:var(--orange);border-color:rgba(255,109,0,0.2);">3D Charts</span>
-          <span class="fp" style="background:var(--violet-g);color:var(--violet);border-color:rgba(213,0,249,0.2);">FastAPI v4</span>
+          <span
+            class="fp"
+            style="
+              background: var(--cyan-g);
+              color: var(--cyan);
+              border-color: rgba(0, 229, 255, 0.2);
+            "
+            >Anthropic API</span
+          >
+          <span
+            class="fp"
+            style="
+              background: var(--green-g);
+              color: var(--green);
+              border-color: rgba(0, 230, 118, 0.2);
+            "
+            >RAG + ChromaDB</span
+          >
+          <span
+            class="fp"
+            style="
+              background: var(--lime-g);
+              color: var(--lime);
+              border-color: rgba(178, 255, 89, 0.2);
+            "
+            >Voice Input</span
+          >
+          <span
+            class="fp"
+            style="
+              background: var(--orange-g);
+              color: var(--orange);
+              border-color: rgba(255, 109, 0, 0.2);
+            "
+            >3D Charts</span
+          >
+          <span
+            class="fp"
+            style="
+              background: var(--violet-g);
+              color: var(--violet);
+              border-color: rgba(213, 0, 249, 0.2);
+            "
+            >FastAPI v2</span
+          >
         </div>
       </div>
-    </div><!-- /shell -->
+    </div>
+    <!-- /shell -->
 
     <script>
       /* ═══════════════════════════════════════════
@@ -2217,6 +2275,7 @@
         }
         animate();
       })();
+
       /* ═══════════════════════════════════════════
    NAVIGATION
 ═══════════════════════════════════════════ */
@@ -2231,6 +2290,7 @@
         if (btn) btn.classList.add("on");
         if (id === "analytics") initAnalytics();
       }
+
       /* ═══════════════════════════════════════════
    ESTIMATOR
 ═══════════════════════════════════════════ */
@@ -2338,6 +2398,7 @@
           ctx.stroke();
         });
       }
+
       /* ─── 3D BAR CHART (Three.js) ─── */
       let th3 = null,
         th3Renderer = null,
@@ -2411,6 +2472,7 @@
           b.mesh.position.y = h / 2;
         });
       }
+
       /* ─── WHAT-IF ─── */
       const WI = {
         concrete: {
@@ -2465,6 +2527,7 @@
           Math.min(99, bdcs + d.da) + "/100";
         document.getElementById("wBR").textContent = d.rec;
       }
+
       /* ─── TICKER LIVE SIMULATION ─── */
       const tickerData = [
         { el: "t1", base: 62400, unit: "/MT", id: "t1c" },
@@ -2493,6 +2556,7 @@
         });
       }
       setInterval(tickerTick, 2800);
+
       /* ═══════════════════════════════════════════
    VOICE INPUT (Web Speech API)
 ═══════════════════════════════════════════ */
@@ -2556,364 +2620,38 @@
         document.getElementById("vBtnIcon").textContent = "🎤";
       }
 
-      /* ═══════════════════════════════════════════════════════════
-         OPENAI ENGINE — key management + core API caller
-      ═══════════════════════════════════════════════════════════ */
-      let OPENAI_KEY = "";
-      const API_BASE = ""; // empty = same origin (FastAPI); or set to "http://localhost:8000"
+      /* ═══════════════════════════════════════════
+   REAL ANTHROPIC API CHATBOT
+═══════════════════════════════════════════ */
+      const SYS = `You are BuildSense AI, an expert construction intelligence assistant for Indian construction projects.
 
-      function onKeyChange() {
-        const k = (document.getElementById("apiKeyInput")?.value || "").trim();
-        OPENAI_KEY = k;
-        const st = document.getElementById("keyStatus");
-        if (!st) return;
-        if (k.startsWith("sk-")) {
-          st.textContent = "✓ Key saved — all AI features active";
-          st.style.color = "var(--green)";
-        } else if (k.length > 0) {
-          st.textContent = "⚠ Key should start with sk-";
-          st.style.color = "var(--orange)";
-        } else {
-          st.textContent = "Paste key — session only, never stored";
-          st.style.color = "var(--dim)";
-        }
-      }
+Current project context:
+- Type: Residential building, 8,000 sq ft, 4 floors
+- Material: Concrete (RCC framing), Location: Urban North India
+- Decision Confidence Score (DCS): 78/100 (High Confidence)
+- Cost estimate: ₹2.4 Crore, Duration: 18 months, Overrun risk: 22%
 
-      /* Collect live project state from the estimator UI */
-      function getProjectData() {
-        const area  = +document.getElementById("sA").value;
-        const flrs  = +document.getElementById("sF").value;
-        const cost  = parseFloat((document.getElementById("hC").textContent || "2.4").replace(/[₹Cr\s]/g,"")) || 2.4;
-        const dur   = parseFloat((document.getElementById("hD").textContent || "18").replace(/[^\d.]/g,"")) || 18;
-        const risk  = parseInt((document.getElementById("hR").textContent || "22").replace(/[^\d]/g,"")) || 22;
-        const dcs   = parseInt(document.getElementById("dN").textContent || "78") || 78;
-        const mat   = document.querySelector('.opts .opt.on[onclick*="\'m\'"]')?.textContent?.trim() || "Concrete";
-        const loc   = document.querySelector('.opts .opt.on[onclick*="\'l\'"]')?.textContent?.trim() || "Urban";
-        const qual  = document.querySelector('.opts .opt.on[onclick*="\'q\'"]')?.textContent?.trim() || "Standard";
-        const matCr = cost * 0.48, labCr = cost * 0.30, ohCr = cost * 0.14, contCr = cost * 0.08;
-        return { area, floors: flrs, material: mat, location: loc, quality: qual,
-                 cost, duration: dur, risk, dcs,
-                 material_cost: matCr, labor_cost: labCr, overhead: ohCr, contingency: contCr,
-                 openai_key: OPENAI_KEY };
-      }
+Your knowledge base includes IS codes (IS 456:2000, IS 800, IS 875, IS 1786, IS 2645), CPWD DSR 2023-24 for North India, material prices (TMT Fe500D ~₹62,400/MT, M25 concrete ~₹5,800/m³, skilled labour ~₹850/day), regional soil conditions (alluvial soil, monsoon Jun-Sep).
 
-      /* Update chat sidebar context display */
-      function syncChatContext() {
-        const p = getProjectData();
-        const s = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
-        s("ctx-area",   (p.area || 0).toLocaleString("en-IN") + " sqft");
-        s("ctx-floors",  p.floors);
-        s("ctx-mat",     p.material);
-        s("ctx-loc",     p.location);
-        s("ctx-cost",   "₹" + p.cost + " Cr");
-        s("ctx-risk",    p.risk + "%");
-        s("ctx-dcs",     p.dcs + "/100");
-      }
+Provide concise, expert responses. Always cite IS code clauses or DSR entries when relevant. Include specific ₹ amounts and percentages. Keep answers under 150 words. Format with line breaks for readability.`;
 
-      /*
-       * Core OpenAI direct caller.
-       * Used when backend is unavailable or for browser-direct mode.
-       */
-      async function _openaiDirect(sysprompt, userprompt, json_mode = false, maxTokens = 800) {
-        if (!OPENAI_KEY) throw new Error("OpenAI API key not set — paste it in AI Chatbot sidebar.");
-        const body = {
-          model: "gpt-4o",
-          max_tokens: maxTokens,
-          temperature: json_mode ? 0.3 : 0.4,
-          messages: [
-            { role: "system", content: sysprompt },
-            { role: "user",   content: userprompt }
-          ]
-        };
-        if (json_mode) body.response_format = { type: "json_object" };
-        const r = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Authorization": "Bearer " + OPENAI_KEY },
-          body: JSON.stringify(body)
-        });
-        if (!r.ok) {
-          const e = await r.json().catch(() => ({}));
-          throw new Error(e.error?.message || "OpenAI API error " + r.status);
-        }
-        const data = await r.json();
-        const text = data.choices?.[0]?.message?.content || (json_mode ? "{}" : "");
-        if (json_mode) {
-          try { return JSON.parse(text.replace(/```json|```/g, "").trim()); }
-          catch { return { raw: text }; }
-        }
-        return text;
-      }
-
-      /*
-       * Multi-turn openai caller for chatbot (sends full history).
-       */
-      async function _openaiChat(sysprompt, messages, maxTokens = 600) {
-        if (!OPENAI_KEY) throw new Error("OpenAI API key not set — paste it in AI Chatbot sidebar.");
-        const r = await fetch("https://api.openai.com/v1/chat/completions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Authorization": "Bearer " + OPENAI_KEY },
-          body: JSON.stringify({
-            model: "gpt-4o", max_tokens: maxTokens, temperature: 0.4,
-            messages: [{ role: "system", content: sysprompt }, ...messages]
-          })
-        });
-        if (!r.ok) {
-          const e = await r.json().catch(() => ({}));
-          throw new Error(e.error?.message || "OpenAI error " + r.status);
-        }
-        const data = await r.json();
-        return data.choices?.[0]?.message?.content || "";
-      }
-
-      /* Try backend endpoint first, fall back to direct browser→OpenAI */
-      async function callAI(endpoint, payload, json_mode = true) {
-        // Backend attempt
-        if (API_BASE !== null) {
-          try {
-            const r = await fetch((API_BASE || "") + endpoint, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-              signal: AbortSignal.timeout(25000)
-            });
-            if (r.ok) return await r.json();
-          } catch (_) { /* fall through to direct */ }
-        }
-        // Direct browser call — build prompt from endpoint
-        return _browserFallback(endpoint, payload);
-      }
-
-      const BASE_SYS = `You are BuildSense AI, expert construction intelligence for Indian projects.
-Standards: IS 456:2000 (RCC), IS 800 (Steel), IS 875 (Loads), IS 1786 (TMT), CPWD DSR 2023-24 North India.
-Market: TMT ₹62,400/MT · M25 ₹5,800/m³ · Cement ₹420/bag · Sand ₹1,950/m³ · Labour ₹850/day · Bricks ₹8,200/1000.
-Regional: North Indian alluvial soil · Monsoon Jun-Sep · Seismic zones II-III.
-Always cite IS clauses and DSR rates. Include ₹ figures. Be concise and expert.`;
-
-      function _pCtx(p) {
-        return `Project: ${(p.area||0).toLocaleString('en-IN')} sqft | ${p.floors} floors | ${p.material} | ${p.location} India | ${p.quality}
-Estimates: ₹${p.cost} Cr | ${p.duration} mo | Risk ${p.risk}% | DCS ${p.dcs}/100
-Costs: Mat ₹${p.material_cost?.toFixed(2)}Cr | Lab ₹${p.labor_cost?.toFixed(2)}Cr | OH ₹${p.overhead?.toFixed(2)}Cr | Cont ₹${p.contingency?.toFixed(2)}Cr`;
-      }
-
-      async function _browserFallback(endpoint, p) {
-        const ctx = _pCtx(p);
-        const prompts = {
-          "/ai/insights": `${ctx}\n\nGenerate exactly 3 proactive insights — one warning, one opportunity, one tip. Return JSON:\n{"insights":[{"type":"warning","title":"5-7 words","body":"2-3 sentences with ₹ figures","action":"one action"},{"type":"opportunity","title":"5-7 words","body":"2-3 sentences with savings","action":"one action"},{"type":"tip","title":"5-7 words","body":"2-3 sentences guidance","action":"one action"}]}`,
-          "/ai/cost-explain": `${ctx}\n\nAnalyse cost ₹${p.cost} Cr. Return JSON:\n{"summary":"2-3 sentence expert verdict citing DSR 2023-24","breakdown":"insight on material/labour/overhead split","savings":["tip1 with ₹","tip2 with %","tip3"],"red_flags":["risk1","risk2"],"confidence":"one sentence on DCS ${p.dcs}/100"}`,
-          "/ai/risk-explain": `${ctx}\n\nAnalyse ${p.risk}% overrun risk across 6 dimensions. Return JSON:\n{"summary":"2 sentence overall risk summary","dimensions":[{"name":"Budget","score":0,"reason":"cause","mitigation":"action with ₹"},{"name":"Timeline","score":0,"reason":"cause","mitigation":"action"},{"name":"Materials","score":0,"reason":"market context","mitigation":"strategy"},{"name":"Labour","score":0,"reason":"at ₹850/day","mitigation":"action"},{"name":"Weather","score":0,"reason":"monsoon Jun-Sep","mitigation":"action"},{"name":"Regulatory","score":0,"reason":"IS code compliance","mitigation":"action"}],"strategy":"top 2 priorities"}`,
-          "/ai/timeline-explain": `${ctx}\n\nAnalyse ${p.duration}-month schedule. Return JSON:\n{"summary":"expert assessment","phases":[{"phase":"Site prep","typical_duration":"2-3 weeks","ai_note":"key note","risk_flag":""},{"phase":"Foundation","typical_duration":"4-6 weeks","ai_note":"IS 456 note","risk_flag":"soil risk"},{"phase":"Structure","typical_duration":"X months","ai_note":"${p.material} note","risk_flag":""},{"phase":"MEP","typical_duration":"X weeks","ai_note":"coordination","risk_flag":""},{"phase":"Finishing","typical_duration":"X weeks","ai_note":"${p.quality} note","risk_flag":""},{"phase":"Handover","typical_duration":"2-3 weeks","ai_note":"statutory","risk_flag":""}],"critical_path":"phase and reason","monsoon_advice":"Jun-Sep strategy","acceleration_tips":["tip1","tip2"]}`
-        };
-        const prompt = prompts[endpoint];
-        if (!prompt) throw new Error("Unknown endpoint: " + endpoint);
-        return _openaiDirect(BASE_SYS + "\nRespond ONLY with valid JSON, no markdown fences.", prompt, true, 850);
-      }
-
-
-      /* ═══════════════════════════════════════════════════════════
-         AI INSIGHTS — triggered by Generate button or runAI
-      ═══════════════════════════════════════════════════════════ */
-      let _insightBusy = false;
-
-      async function triggerInsights() {
-        if (_insightBusy) return;
-        if (!OPENAI_KEY) {
-          renderInsights([{
-            type: "tip",
-            title: "OpenAI Key Required",
-            body: "Paste your OpenAI API key in the AI Chatbot sidebar to generate live GPT-4o project insights.",
-            action: "Go to AI Chatbot tab and paste your key"
-          }]);
-          return;
-        }
-        _insightBusy = true;
-        const btn = document.getElementById("insightBtn");
-        if (btn) { btn.textContent = "Generating..."; btn.disabled = true; }
-        document.getElementById("insightContent").innerHTML = `
-          <div style="display:flex;align-items:center;gap:10px;padding:12px;font-size:11px;color:var(--muted);">
-            <div style="display:flex;gap:4px;">
-              <div class="td"></div><div class="td"></div><div class="td"></div>
-            </div>
-            GPT-4o analysing your project...
-          </div>`;
-        try {
-          const res = await callAI("/ai/insights", getProjectData());
-          renderInsights(res.insights || []);
-        } catch (e) {
-          document.getElementById("insightContent").innerHTML =
-            `<div style="padding:10px;border-radius:8px;background:var(--red-g);border:1px solid rgba(255,23,68,.25);font-size:11px;color:var(--red);">⚠ ${e.message}</div>`;
-        }
-        _insightBusy = false;
-        if (btn) { btn.textContent = "↻ Refresh"; btn.disabled = false; }
-      }
-
-      function renderInsights(insights) {
-        const COL = { warning: "var(--orange)", opportunity: "var(--green)", tip: "var(--cyan)" };
-        const ICO = { warning: "⚠", opportunity: "✦", tip: "💡" };
-        const box = document.getElementById("insightContent");
-        if (!box) return;
-        box.innerHTML = insights.map(ins => {
-          const col = COL[ins.type] || "var(--cyan)";
-          const ico = ICO[ins.type] || "•";
-          return `<div class="insight-card" style="border-color:${col};background:${col.replace('var(','').replace(')','')},0.07);">
-            <div class="insight-type" style="color:${col};">${ico} ${(ins.type||"").toUpperCase()}</div>
-            <div class="insight-title">${ins.title || ""}</div>
-            <div class="insight-body">${ins.body || ""}</div>
-            <div class="insight-action" style="color:${col};" onclick="fillQ(this)">→ ${ins.action || ""}</div>
-          </div>`;
-        }).join("");
-      }
-
-
-      /* ═══════════════════════════════════════════════════════════
-         AI EXPLAIN DRAWERS — cost, risk, timeline
-      ═══════════════════════════════════════════════════════════ */
-      let _activeDrawer = null;
-
-      function closeDrawer() {
-        document.getElementById("aiDrawer")?.remove();
-        _activeDrawer = null;
-      }
-
-      async function openDrawer(type) {
-        if (_activeDrawer === type) { closeDrawer(); return; }
-        closeDrawer();
-        if (!OPENAI_KEY) {
-          alert("Paste your OpenAI API key in the AI Chatbot sidebar first.");
-          page("chat", document.querySelectorAll(".ntab")[1]);
-          return;
-        }
-        _activeDrawer = type;
-        const titles = { cost: "💰 Cost Deep Analysis", risk: "🛡 Risk Breakdown", timeline: "⏱ Timeline Analysis" };
-        const cols   = { cost: "var(--cyan)", risk: "var(--orange)", timeline: "var(--violet)" };
-        const col = cols[type] || "var(--cyan)";
-
-        // Create drawer
-        const drawer = document.createElement("div");
-        drawer.id = "aiDrawer";
-        drawer.className = "ai-drawer";
-        drawer.innerHTML = `
-          <div class="drawer-head">
-            <div class="drawer-title" style="color:${col};">${titles[type]}</div>
-            <div class="drawer-close" onclick="closeDrawer()">×</div>
-          </div>
-          <div id="drawerBody" style="font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;padding:8px 0;">
-            <div style="display:flex;gap:4px;"><div class="td"></div><div class="td"></div><div class="td"></div></div>
-            GPT-4o analysing...
-          </div>`;
-        document.body.appendChild(drawer);
-
-        const p = getProjectData();
-        const endpoints = { cost: "/ai/cost-explain", risk: "/ai/risk-explain", timeline: "/ai/timeline-explain" };
-        try {
-          const res = await callAI(endpoints[type], p);
-          const body = document.getElementById("drawerBody");
-          if (!body) return;
-          if (type === "cost")     renderCostDrawer(body, res, col);
-          if (type === "risk")     renderRiskDrawer(body, res);
-          if (type === "timeline") renderTimelineDrawer(body, res, col);
-        } catch (e) {
-          const body = document.getElementById("drawerBody");
-          if (body) body.innerHTML = `<div style="color:var(--red);">⚠ ${e.message}</div>`;
-        }
-      }
-
-      function renderCostDrawer(el, r, col) {
-        el.innerHTML = `
-          <div class="drawer-section">
-            <div class="drawer-lbl" style="color:${col};">Expert Verdict</div>
-            <div class="drawer-text" style="background:var(--s2);padding:9px;border-radius:8px;border:1px solid var(--border);color:var(--text);">${r.summary || ""}</div>
-          </div>
-          <div class="drawer-section">
-            <div class="drawer-lbl" style="color:${col};">Breakdown Analysis</div>
-            <div class="drawer-text">${r.breakdown || ""}</div>
-          </div>
-          ${(r.savings||[]).length ? `<div class="drawer-section">
-            <div class="drawer-lbl" style="color:var(--green);">💰 Savings Tips</div>
-            ${r.savings.map(t=>`<div style="padding:5px 9px;border-left:2px solid var(--green);margin-bottom:5px;font-size:11px;color:rgba(226,234,246,.8);">${t}</div>`).join("")}
-          </div>` : ""}
-          ${(r.red_flags||[]).length ? `<div class="drawer-section">
-            <div class="drawer-lbl" style="color:var(--red);">🚩 Red Flags</div>
-            ${r.red_flags.map(f=>`<div style="padding:5px 9px;border-left:2px solid var(--red);margin-bottom:5px;font-size:11px;color:rgba(255,23,68,.85);">${f}</div>`).join("")}
-          </div>` : ""}
-          ${r.confidence ? `<div style="font-size:10px;color:var(--dim);border-top:1px solid var(--border);padding-top:8px;margin-top:4px;">${r.confidence}</div>` : ""}`;
-      }
-
-      function renderRiskDrawer(el, r) {
-        const dimColor = s => s >= 70 ? "var(--red)" : s >= 45 ? "var(--orange)" : "var(--green)";
-        el.innerHTML = `
-          <div class="drawer-section">
-            <div class="drawer-lbl" style="color:var(--orange);">Overall Risk Summary</div>
-            <div class="drawer-text" style="background:var(--s2);padding:9px;border-radius:8px;border:1px solid var(--border);color:var(--text);">${r.summary || ""}</div>
-          </div>
-          <div class="drawer-section">
-            <div class="drawer-lbl" style="color:var(--orange);">6 Dimensions</div>
-            ${(r.dimensions||[]).map(d => {
-              const c = dimColor(d.score||0);
-              return `<div class="drawer-card" style="border-color:${c}33;border-left:3px solid ${c};">
-                <div class="drawer-card-head">
-                  <span style="font-weight:700;font-size:11px;color:${c};">${d.name}</span>
-                  <span style="font-family:var(--mono);font-size:11px;font-weight:700;color:${c};">${d.score||0}/100</span>
-                </div>
-                <div class="dim-bar" style="background:rgba(255,255,255,.05);"><div style="height:100%;width:${d.score||0}%;background:${c};border-radius:1px;"></div></div>
-                <div style="font-size:10px;color:rgba(226,234,246,.65);margin-bottom:4px;">${d.reason||""}</div>
-                <div style="font-size:10px;color:${c};font-weight:600;">→ ${d.mitigation||""}</div>
-              </div>`;
-            }).join("")}
-          </div>
-          ${r.strategy ? `<div style="padding:9px;background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.2);border-radius:8px;">
-            <div class="drawer-lbl" style="color:var(--cyan);margin-bottom:4px;">PRIORITY STRATEGY</div>
-            <div class="drawer-text" style="color:var(--text);">${r.strategy}</div>
-          </div>` : ""}`;
-      }
-
-      function renderTimelineDrawer(el, r, col) {
-        el.innerHTML = `
-          <div class="drawer-section">
-            <div class="drawer-lbl" style="color:${col};">Schedule Assessment</div>
-            <div class="drawer-text" style="background:var(--s2);padding:9px;border-radius:8px;border:1px solid var(--border);color:var(--text);">${r.summary || ""}</div>
-          </div>
-          <div class="drawer-section">
-            <div class="drawer-lbl" style="color:${col};">Phase Breakdown</div>
-            ${(r.phases||[]).map(ph => `<div class="drawer-card">
-              <div class="drawer-card-head">
-                <span style="font-weight:700;font-size:11px;color:var(--text);">${ph.phase}</span>
-                <span style="font-family:var(--mono);font-size:9px;color:var(--muted);">${ph.typical_duration||""}</span>
-              </div>
-              <div style="font-size:10px;color:rgba(226,234,246,.65);margin-bottom:${ph.risk_flag?'3px':'0'};">${ph.ai_note||""}</div>
-              ${ph.risk_flag ? `<div style="font-size:9px;color:var(--orange);font-weight:600;">⚠ ${ph.risk_flag}</div>` : ""}
-            </div>`).join("")}
-          </div>
-          ${r.critical_path ? `<div class="drawer-section" style="padding:9px;background:rgba(255,109,0,.07);border:1px solid rgba(255,109,0,.25);border-radius:8px;">
-            <div class="drawer-lbl" style="color:var(--orange);margin-bottom:4px;">CRITICAL PATH</div>
-            <div class="drawer-text">${r.critical_path}</div>
-          </div>` : ""}
-          ${r.monsoon_advice ? `<div class="drawer-section" style="padding:9px;background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.2);border-radius:8px;">
-            <div class="drawer-lbl" style="color:var(--cyan);margin-bottom:4px;">MONSOON STRATEGY</div>
-            <div class="drawer-text">${r.monsoon_advice}</div>
-          </div>` : ""}
-          ${(r.acceleration_tips||[]).length ? `<div class="drawer-section">
-            <div class="drawer-lbl" style="color:var(--green);">⚡ Acceleration Tips</div>
-            ${r.acceleration_tips.map(t=>`<div style="padding:5px 9px;border-left:2px solid var(--green);margin-bottom:5px;font-size:11px;color:rgba(226,234,246,.8);">${t}</div>`).join("")}
-          </div>` : ""}`;
-      }
-
-
-      /* ═══════════════════════════════════════════════════════════
-         CHATBOT — GPT-4o multi-turn
-      ═══════════════════════════════════════════════════════════ */
-      let hist = [], busy = false;
-
+      let hist = [],
+        busy = false;
       function addMsg(text, role, src) {
         const msgs = document.getElementById("msgs");
         const d = document.createElement("div");
         d.className = "msg " + role + " anim";
         const b = document.createElement("div");
         b.className = "mb";
-        b.innerHTML = text.replace(/\n/g, "<br>").replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+        b.innerHTML = text
+          .replace(/\n/g, "<br>")
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
         const m = document.createElement("div");
         m.className = "mmeta";
-        m.textContent = role === "u" ? "You · just now" : "BuildSense AI · GPT-4o";
-        d.appendChild(b); d.appendChild(m);
+        m.textContent =
+          role === "u" ? "You · just now" : "BuildSense AI · Anthropic API";
+        d.appendChild(b);
+        d.appendChild(m);
         if (src && role === "a") {
           const s = document.createElement("span");
           s.className = "src-tag";
@@ -2923,25 +2661,25 @@ Costs: Mat ₹${p.material_cost?.toFixed(2)}Cr | Lab ₹${p.labor_cost?.toFixed(
         msgs.appendChild(d);
         msgs.scrollTop = msgs.scrollHeight;
       }
-
       function showTyping() {
         const msgs = document.getElementById("msgs");
         const d = document.createElement("div");
-        d.className = "msg a"; d.id = "tyd";
+        d.className = "msg a";
+        d.id = "tyd";
         const t = document.createElement("div");
         t.className = "typing-dots";
-        t.innerHTML = "<div class='td'></div><div class='td'></div><div class='td'></div>";
-        d.appendChild(t); msgs.appendChild(d);
+        t.innerHTML =
+          '<div class="td"></div><div class="td"></div><div class="td"></div>';
+        d.appendChild(t);
+        msgs.appendChild(d);
         msgs.scrollTop = msgs.scrollHeight;
       }
-      function rmTyping() { document.getElementById("tyd")?.remove(); }
-
+      function rmTyping() {
+        const t = document.getElementById("tyd");
+        if (t) t.remove();
+      }
       async function send() {
         if (busy) return;
-        if (!OPENAI_KEY) {
-          addMsg("⚠ Please paste your OpenAI API key in the sidebar to use the chatbot.", "a");
-          return;
-        }
         const inp = document.getElementById("chatIn");
         const q = inp.value.trim();
         if (!q) return;
@@ -2953,117 +2691,214 @@ Costs: Mat ₹${p.material_cost?.toFixed(2)}Cr | Lab ₹${p.labor_cost?.toFixed(
         hist.push({ role: "user", content: q });
         showTyping();
         try {
-          const p = getProjectData();
-          const sys = BASE_SYS + `\n\nLIVE PROJECT:\n${_pCtx(p)}\n\nAnswer questions about this project. Max 200 words. Use line breaks. Cite IS codes and ₹ figures.`;
-
-          // Try backend /ai/chat first, fall back to direct
-          let reply = "";
-          try {
-            const r = await fetch((API_BASE || "") + "/ai/chat", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ messages: hist, ...p }),
-              signal: AbortSignal.timeout(20000)
-            });
-            if (r.ok) { const d = await r.json(); reply = d.reply || ""; }
-          } catch (_) {}
-
-          if (!reply) {
-            reply = await _openaiChat(sys, hist, 600);
-          }
-
+          const res = await fetch("https://api.anthropic.com/v1/messages", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              model: "claude-sonnet-4-6",
+              max_tokens: 1000,
+              system: SYS,
+              messages: hist,
+            }),
+          });
+          const data = await res.json();
           rmTyping();
+          const reply =
+            data.content?.[0]?.text ||
+            "I encountered an issue — please try again.";
           hist.push({ role: "assistant", content: reply });
-          addMsg(reply, "a", "IS Codes + DSR 2023-24 + GPT-4o");
-        } catch (e) {
+          addMsg(reply, "a", "IS Codes + DSR 2023-24 + claude-sonnet-4-6");
+        } catch {
           rmTyping();
-          addMsg("⚠ " + (e.message || "Network error. Check connection."), "a");
+          addMsg("Network error. Check connection and try again.", "a");
         }
         busy = false;
         document.getElementById("sendBtn").disabled = false;
         document.getElementById("sendBtn").textContent = "Send →";
       }
-
       function fillQ(el) {
-        const txt = typeof el === "string" ? el : el.textContent?.trim();
-        if (!txt) return;
-        document.getElementById("chatIn").value = txt;
+        document.getElementById("chatIn").value = el.textContent;
         document.getElementById("chatIn").focus();
-        page("chat", document.querySelectorAll(".ntab")[1]);
       }
 
-
-      /* ═══════════════════════════════════════════════════════════
-         runAI — now also triggers GPT-4o insights + syncs context
-      ═══════════════════════════════════════════════════════════ */
-      function runAI(btn) {
-        btn.textContent = "Analyzing...";
-        btn.disabled = true;
-        setTimeout(async () => {
-          go();
-          syncChatContext();
-          btn.textContent = "✓ Analysis complete";
-          setTimeout(() => { btn.textContent = "Run AI Analysis"; btn.disabled = false; }, 2500);
-          if (OPENAI_KEY) await triggerInsights();
-        }, 900);
-      }
-
-      /* patch go() to keep chat context in sync */
-      const _origGo = go;
-      go = function () { _origGo(); syncChatContext(); };
-
-
-      /* ═══════════════════════════════════════════════════════════
-         ANALYTICS CHARTS (unchanged from original)
-      ═══════════════════════════════════════════════════════════ */
+      /* ═══════════════════════════════════════════
+   ANALYTICS CHARTS
+═══════════════════════════════════════════ */
       let anReady = false;
       const CO = {
         grid: "rgba(255,255,255,0.03)",
-        tick: { color: "rgba(74,101,133,0.9)", font: { size: 10, family: "JetBrains Mono,monospace" } },
+        tick: {
+          color: "rgba(74,101,133,0.9)",
+          font: { size: 10, family: "JetBrains Mono,monospace" },
+        },
       };
-
       function initAnalytics() {
         if (anReady) return;
         anReady = true;
         new Chart(document.getElementById("accChart").getContext("2d"), {
           type: "line",
           data: {
-            labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug"],
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"],
             datasets: [
-              { label: "Manual error %", data: [38,35,37,32,34,30,28,26], borderColor: "#ff1744", backgroundColor: "rgba(255,23,68,0.06)", fill: true, tension: 0.4, pointRadius: 3, pointBackgroundColor: "#ff1744" },
-              { label: "BuildSense AI %", data: [14,13,12,11,10,9,9,8],  borderColor: "#00e676", backgroundColor: "rgba(0,230,118,0.06)", fill: true, tension: 0.4, pointRadius: 3, pointBackgroundColor: "#00e676" },
+              {
+                label: "Manual error %",
+                data: [38, 35, 37, 32, 34, 30, 28, 26],
+                borderColor: "#ff1744",
+                backgroundColor: "rgba(255,23,68,0.06)",
+                fill: true,
+                tension: 0.4,
+                pointRadius: 3,
+                pointBackgroundColor: "#ff1744",
+              },
+              {
+                label: "BuildSense AI %",
+                data: [14, 13, 12, 11, 10, 9, 9, 8],
+                borderColor: "#00e676",
+                backgroundColor: "rgba(0,230,118,0.06)",
+                fill: true,
+                tension: 0.4,
+                pointRadius: 3,
+                pointBackgroundColor: "#00e676",
+              },
             ],
           },
-          options: { responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { labels: { color: "rgba(226,234,246,0.5)", font: { size: 10, family: "JetBrains Mono,monospace" }, boxWidth: 10 } } },
-            scales: { y: { grid: { color: CO.grid }, ticks: { ...CO.tick, callback: v => v + "%" } }, x: { grid: { display: false }, ticks: CO.tick } } },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  color: "rgba(226,234,246,0.5)",
+                  font: { size: 10, family: "JetBrains Mono,monospace" },
+                  boxWidth: 10,
+                },
+              },
+            },
+            scales: {
+              y: {
+                grid: { color: CO.grid },
+                ticks: { ...CO.tick, callback: (v) => v + "%" },
+              },
+              x: { grid: { display: false }, ticks: CO.tick },
+            },
+          },
         });
         new Chart(document.getElementById("pieChart").getContext("2d"), {
           type: "doughnut",
-          data: { labels: ["Residential","Commercial","Industrial","Infrastructure"], datasets: [{ data: [52,26,14,8], backgroundColor: ["#00e5ff","#00e676","#ff6d00","#d500f9"], borderWidth: 0, hoverOffset: 8 }] },
-          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: "bottom", labels: { color: "rgba(226,234,246,0.5)", font: { size: 10, family: "JetBrains Mono,monospace" }, boxWidth: 9, padding: 10 } } } },
+          data: {
+            labels: [
+              "Residential",
+              "Commercial",
+              "Industrial",
+              "Infrastructure",
+            ],
+            datasets: [
+              {
+                data: [52, 26, 14, 8],
+                backgroundColor: ["#00e5ff", "#00e676", "#ff6d00", "#d500f9"],
+                borderWidth: 0,
+                hoverOffset: 8,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "bottom",
+                labels: {
+                  color: "rgba(226,234,246,0.5)",
+                  font: { size: 10, family: "JetBrains Mono,monospace" },
+                  boxWidth: 9,
+                  padding: 10,
+                },
+              },
+            },
+          },
         });
         new Chart(document.getElementById("dcsChart").getContext("2d"), {
           type: "line",
-          data: { labels: ["W1","W2","W3","W4","W5","W6","W7","W8"], datasets: [{ data: [65,67,70,71,73,74,75,78], borderColor: "#00e5ff", backgroundColor: "rgba(0,229,255,0.05)", fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: "#00e5ff", pointBorderColor: "#04080f", pointBorderWidth: 2 }] },
-          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 55, max: 95, grid: { color: CO.grid }, ticks: CO.tick }, x: { grid: { display: false }, ticks: CO.tick } } },
+          data: {
+            labels: ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"],
+            datasets: [
+              {
+                data: [65, 67, 70, 71, 73, 74, 75, 78],
+                borderColor: "#00e5ff",
+                backgroundColor: "rgba(0,229,255,0.05)",
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: "#00e5ff",
+                pointBorderColor: "#04080f",
+                pointBorderWidth: 2,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: { min: 55, max: 95, grid: { color: CO.grid }, ticks: CO.tick },
+              x: { grid: { display: false }, ticks: CO.tick },
+            },
+          },
         });
         new Chart(document.getElementById("riskChart").getContext("2d"), {
           type: "bar",
-          data: { labels: ["Budget","Labour","Timeline","Regulatory","Materials","Weather"], datasets: [{ data: [72,63,55,48,40,30], backgroundColor: ["#ff1744","#ff6d00","#00e5ff","#d500f9","#00e676","#00e676"], borderRadius: 5, borderSkipped: false }] },
-          options: { responsive: true, maintainAspectRatio: false, indexAxis: "y", plugins: { legend: { display: false } }, scales: { x: { max: 100, grid: { color: CO.grid }, ticks: CO.tick }, y: { grid: { display: false }, ticks: { color: "rgba(74,101,133,0.9)", font: { size: 10, family: "JetBrains Mono,monospace" } } } } },
+          data: {
+            labels: [
+              "Budget",
+              "Labour",
+              "Timeline",
+              "Regulatory",
+              "Materials",
+              "Weather",
+            ],
+            datasets: [
+              {
+                data: [72, 63, 55, 48, 40, 30],
+                backgroundColor: [
+                  "#ff1744",
+                  "#ff6d00",
+                  "#00e5ff",
+                  "#d500f9",
+                  "#00e676",
+                  "#00e676",
+                ],
+                borderRadius: 5,
+                borderSkipped: false,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: "y",
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { max: 100, grid: { color: CO.grid }, ticks: CO.tick },
+              y: {
+                grid: { display: false },
+                ticks: {
+                  color: "rgba(74,101,133,0.9)",
+                  font: { size: 10, family: "JetBrains Mono,monospace" },
+                },
+              },
+            },
+          },
         });
       }
 
-
-      /* ═══════════════════════════════════════════════════════════
-         INIT
-      ═══════════════════════════════════════════════════════════ */
+      /* ═══════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════ */
       window.onload = () => {
         go();
         init3D();
-        syncChatContext();
-        document.querySelectorAll(".srow input[type=range]").forEach(r => {
+        // Slider gradient init
+        document.querySelectorAll(".srow input[type=range]").forEach((r) => {
           const pct = ((r.value - r.min) / (r.max - r.min)) * 100;
           r.style.setProperty("--pct", pct + "%");
           r.addEventListener("input", () => {
@@ -3071,8 +2906,6 @@ Costs: Mat ₹${p.material_cost?.toFixed(2)}Cr | Lab ₹${p.labor_cost?.toFixed(
             r.style.setProperty("--pct", p + "%");
           });
         });
-        // Close drawer on Escape
-        document.addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
       };
     </script>
   </body>
