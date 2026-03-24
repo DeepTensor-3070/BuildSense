@@ -1,348 +1,371 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/AI%20ARENA%202026-Team%20Pragnix-orange?style=for-the-badge&logo=lightning&logoColor=white" />
+<br />
 
-# 🏗️ BuildSense — BuildAtlas GenAI
+```
+██████╗ ██╗   ██╗██╗██╗     ██████╗ ███████╗███████╗███╗   ██╗███████╗███████╗
+██╔══██╗██║   ██║██║██║     ██╔══██╗██╔════╝██╔════╝████╗  ██║██╔════╝██╔════╝
+██████╔╝██║   ██║██║██║     ██║  ██║███████╗█████╗  ██╔██╗ ██║███████╗█████╗  
+██╔══██╗██║   ██║██║██║     ██║  ██║╚════██║██╔══╝  ██║╚██╗██║╚════██║██╔══╝  
+██████╔╝╚██████╔╝██║███████╗██████╔╝███████║███████╗██║ ╚████║███████║███████╗
+╚═════╝  ╚═════╝ ╚═╝╚══════╝╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═══╝╚══════╝╚══════╝
+```
 
-### Construction Intelligence Co-Pilot
+**AI-powered code analysis and build intelligence — understand your codebase before it breaks.**
 
-> *"The future of construction planning is not more spreadsheets.  
-> It is an AI that thinks before you ask."*
+<br />
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.35-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
-[![LLaMA](https://img.shields.io/badge/LLaMA_3.1-Meta-0467DF?style=flat-square&logo=meta&logoColor=white)](https://llama.meta.com)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker&logoColor=white)](https://docker.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
+[![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)]()
+
 
 </div>
 
 ---
 
-## 📌 Overview
+## What is BuildSense?
 
-The Indian construction industry **loses over ₹18,000 crore annually** to cost overruns and project delays — not because of bad engineers, but because of bad tools. Manual estimation, disconnected spreadsheets, and gut-based decision-making leave even experienced professionals flying blind.
+BuildSense is an AI-powered code analysis and build intelligence platform that gives developers deep, actionable insight into their codebase. It statically and dynamically analyses your project, detects structural weaknesses, dependency risks, and build failures — then explains them in plain language using a fine-tuned ML pipeline.
 
-**BuildSense (BuildAtlas GenAI)** changes that.
+Whether you're onboarding to a legacy codebase, debugging a flaky CI pipeline, or hardening your architecture before a major release, BuildSense turns opaque build noise into clear, prioritised guidance.
 
-It is not a cost calculator. It is a **construction co-pilot** — one that reasons, warns, and decides the way a senior site engineer would, but in under 60 seconds. Powered by LLM reasoning, Retrieval-Augmented Generation (RAG), and a proprietary Decision Confidence Score, BuildSense gives every engineer — fresh graduate or veteran — expert-level decision support at their fingertips.
+> **Think of it as a senior engineer watching your build — one who never sleeps, never guesses, and always explains their reasoning.**
 
 ---
 
-## 🚀 Key Features
+## ✨ Features
 
-### 🎯 Decision Confidence Score (DCS) — Hero Feature
-Every AI-generated estimate includes a **DCS (0–100)** — an industry-first transparency metric aggregating four dimensions:
+### 🧠 AI-Driven Code Analysis
+BuildSense uses a machine learning model trained on thousands of real-world codebases to detect anti-patterns, complexity hotspots, and latent bugs — not just style violations.
 
-| Dimension | Weight |
-|---|---|
-| Data Quality | High |
-| Market Volatility | Medium |
-| Project Complexity | Moderate |
-| Location Risk | Low |
+### 🔍 Build Failure Diagnosis
+Feed BuildSense your CI/CD logs and it will pinpoint the root cause, trace it back to the relevant code change, and suggest a fix — in seconds.
+
+### 📊 Dependency Risk Scoring
+Every dependency in your project is scored for security vulnerability exposure, staleness, and license compatibility. Know your risk surface at a glance.
+
+### 🗺️ Architecture Visualisation
+BuildSense generates interactive call graphs, module dependency maps, and coupling heatmaps rendered in the React frontend — making your system architecture tangible.
+
+### ⚡ Incremental Analysis
+Only changed files are re-analysed on each run. BuildSense caches intermediate results intelligently so large monorepos stay fast.
+
+### 🔔 Smart Alerting
+Set thresholds for complexity scores, test coverage delta, or dependency age — and get notified the moment a PR crosses the line, before it merges.
+
+### 🖥️ React Dashboard
+A clean, interactive frontend lets you drill into file-level reports, compare snapshots across commits, and export findings as JSON, HTML, or PDF.
+
+---
+
+## 🎬 Demo
+
+> Screenshots and a live demo link will be added here. In the meantime, clone the repo and run `make demo` to spin up a local demo with a sample project.
 
 ```
-Sample Output → DCS = 78/100 — "High Confidence — Safe to Proceed"
-```
-
----
-
-### ⚠️ Proactive AI Risk Warnings
-BuildSense surfaces location and project-specific risks **before you ask** — the moment project type and location are entered.
-
-```
-AI Insight — Urban Residential, North India Zone
-────────────────────────────────────────────────
-Foundation overrun risk: 38% (Alluvial soil detected)
-→ Recommend geotechnical survey as Phase 0 — est. ₹1.2–1.8L
-→ Saves 9–14% on structural costs
-→ Monsoon window (Jun–Sep) will delay excavation unless covered staging is planned
-```
-
----
-
-### 🔄 Live What-If Scenario Engine
-Toggle between material types and watch cost, duration, overrun risk, and DCS update **side-by-side in real time**.
-
-| Metric | Concrete | Steel Frame | Timber | Composite |
-|---|---|---|---|---|
-| Cost Estimate | ₹2.4 Cr | ₹2.9 Cr | ₹1.97 Cr | ₹3.24 Cr |
-| Duration | 18 months | 14 months | 20 months | 16 months |
-| Overrun Risk | 22% | 15% | 25% | 15% |
-| DCS Score | 78/100 | 85/100 | 70/100 | 89/100 |
-
----
-
-### 📋 Additional Capabilities
-- **Accurate Cost Estimates** — Breakdown by material, labour, overhead & contingency
-- **Structured Project Timelines** — Phase-by-phase Gantt chart visualization
-- **Resource Allocation** — Peak workforce recommendations per phase
-- **Progress Tracker** — Monitor project health against planned milestones
-- **RAG-Grounded Outputs** — AI responses anchored to IS codes and Indian construction standards
-
----
-
-## 📊 Impact at a Glance
-
-| Metric | Current State | With BuildSense AI |
-|---|---|---|
-| Cost estimation time | 3–7 days (manual) | **Under 60 seconds** |
-| Estimate accuracy | ±30–40% deviation | **±8–12% with DCS** |
-| Risk discovery timing | Mid-project (too late) | **Before planning starts** |
-| Decision quality | Experience-dependent | **AI-augmented for all skill levels** |
-
----
-
-## 🧱 Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    User Interface                        │
-│              Streamlit Dashboard (Frontend)              │
-└──────────────────────┬──────────────────────────────────┘
-                       │ HTTP REST
-┌──────────────────────▼──────────────────────────────────┐
-│                  Python FastAPI                          │
-│            Backend API & AI Inference Layer              │
-└──────┬───────────────────────────────────┬──────────────┘
-       │                                   │
-┌──────▼──────────┐             ┌──────────▼──────────────┐
-│  LLM Engine     │             │    Knowledge Layer       │
-│  LLaMA 3.1 /   │             │   RAG + FAISS            │
-│  GPT-4o         │             │   IS Codes, Rate Cards   │
-└──────┬──────────┘             └──────────┬──────────────┘
-       │                                   │
-┌──────▼───────────────────────────────────▼──────────────┐
-│                     Data Layer                           │
-│          MySQL (Projects) + Vector DB (Embeddings)       │
-└─────────────────────────────────────────────────────────┘
-                       │
-┌──────────────────────▼──────────────────────────────────┐
-│                   Deployment                             │
-│              Docker + AWS / GCP                          │
-└─────────────────────────────────────────────────────────┘
+make demo
+# → Launches the React dashboard at http://localhost:3000
+# → Runs BuildSense against the bundled sample project
+# → Results stream in live as analysis completes
 ```
 
 ---
 
-## 🛠️ Tech Stack
-
-| Layer | Technology | Purpose |
-|---|---|---|
-| **Frontend** | Streamlit | Interactive real-time dashboard |
-| **Backend API** | Python FastAPI | High-performance REST API |
-| **AI Model** | LLaMA 3.1 / GPT-4o | Cost estimation, timeline generation, chatbot |
-| **Knowledge Layer** | RAG + FAISS | Construction standards, IS codes, rate schedules |
-| **Database** | MySQL + Vector DB | Project history and embedding storage |
-| **Deployment** | Docker + AWS/GCP | Scalable, production-ready cloud deployment |
-
----
-
-## 📦 Installation & Setup
+## 📦 Installation
 
 ### Prerequisites
 
-- Python 3.10+
-- Docker (recommended)
-- MySQL 8.0+
-- An OpenAI API key **or** a locally running LLaMA 3.1 instance
+| Requirement | Version |
+|-------------|---------|
+| Python | 3.10 or higher |
+| Node.js | 18 or higher |
+| pip | latest |
+| npm / yarn | latest |
 
----
-
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/DeepTensor-3070/BuildSense.git
 cd BuildSense
 ```
 
-### 2. Create a Virtual Environment
+### 2. Set up the Python backend
 
 ```bash
-python -m venv venv
-source venv/bin/activate        # Linux / macOS
-# venv\Scripts\activate         # Windows
-```
+# Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 
-### 3. Install Dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
+### 3. Set up the React frontend
+
+```bash
+cd frontend
+npm install
+cd ..
+```
+
+### 4. Configure environment variables
 
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` with your credentials:
+Edit `.env` and fill in the required values:
 
 ```env
-# AI Model
-OPENAI_API_KEY=your_openai_key_here
-# OR for local LLaMA:
-LLAMA_MODEL_PATH=/path/to/llama-3.1
+# Core
+BUILDSENSE_SECRET_KEY=your-secret-key
 
-# Database
-MYSQL_HOST=localhost
-MYSQL_PORT=3306
-MYSQL_USER=root
-MYSQL_PASSWORD=your_password
-MYSQL_DATABASE=buildsense
+# Model settings
+MODEL_PATH=./models/buildsense_v1.pkl
+ANALYSIS_WORKERS=4
 
-# Vector Store
-FAISS_INDEX_PATH=./data/faiss_index
-
-# App
-APP_ENV=development
-SECRET_KEY=your_secret_key
+# Frontend API base URL
+VITE_API_BASE_URL=http://localhost:8000
 ```
 
-### 5. Initialize the Database
+### 5. Run database migrations (if applicable)
 
 ```bash
-python scripts/init_db.py
+python manage.py migrate
 ```
-
-### 6. Build the FAISS Knowledge Index
-
-```bash
-python scripts/build_index.py --source ./data/is_codes/
-```
-
-### 7. Run the Application
-
-**Option A — Run services individually:**
-
-```bash
-# Terminal 1: Start FastAPI backend
-uvicorn app.main:app --reload --port 8000
-
-# Terminal 2: Start Streamlit frontend
-streamlit run frontend/app.py
-```
-
-**Option B — Docker Compose (recommended):**
-
-```bash
-docker-compose up --build
-```
-
-The app will be available at:
-- **Frontend:** `http://localhost:8501`
-- **API Docs:** `http://localhost:8000/docs`
 
 ---
 
-## 🖥️ Usage
+## 🚀 Usage
 
-### Generating a Cost Estimate
+### Starting the application
 
-1. Open the Streamlit dashboard at `http://localhost:8501`
-2. Enter your **project parameters**:
-   - Project type (Residential / Commercial / Infrastructure)
-   - Location (state and zone)
-   - Scale (area in sq. ft. or project value range)
-   - Preferred materials
-3. Click **"Generate Estimate"**
-4. View the full breakdown — cost, timeline, resource plan, and your **DCS score**
-5. Review any **Proactive AI Risk Warnings** surfaced for your project context
+**Backend (API server):**
 
-### Running a What-If Scenario
-
-1. After generating an initial estimate, navigate to the **Scenario Engine** tab
-2. Toggle between material types (Concrete / Steel / Timber / Composite)
-3. Observe real-time updates to cost, duration, overrun risk, and DCS
-
-### API Usage (Direct)
-
-```python
-import httpx
-
-payload = {
-    "project_type": "residential",
-    "location": "Delhi NCR",
-    "area_sqft": 2400,
-    "material": "concrete",
-    "floors": 3
-}
-
-response = httpx.post("http://localhost:8000/api/v1/estimate", json=payload)
-print(response.json())
+```bash
+# From the project root, with the virtual environment active
+python -m buildsense.server --port 8000
 ```
 
-Sample response:
+**Frontend (React dashboard):**
+
+```bash
+cd frontend
+npm run dev
+# → http://localhost:3000
+```
+
+Or start everything together:
+
+```bash
+make start
+```
+
+---
+
+### Analysing a project
+
+**Via CLI:**
+
+```bash
+# Analyse the current directory
+buildsense analyse .
+
+# Analyse a specific path
+buildsense analyse /path/to/your/project
+
+# Analyse and output JSON
+buildsense analyse . --format json --output report.json
+
+# Analyse and set a minimum quality score threshold (exits non-zero if below)
+buildsense analyse . --min-score 75
+```
+
+**Via the dashboard:**
+
+1. Open `http://localhost:3000`
+2. Click **New Analysis** and provide a path or upload a zip archive
+3. Watch results populate in real time
+4. Drill into any file or module for detailed findings
+
+**Diagnosing a build log:**
+
+```bash
+# Pipe a CI log directly into BuildSense
+cat build.log | buildsense diagnose
+
+# Or point at a log file
+buildsense diagnose --log build.log --verbose
+```
+
+**Example output:**
+
+```
+BuildSense v1.0.0  ·  Analysing: my-project/
+
+  ✔  Parsed 142 files (2.3s)
+  ✔  Dependency graph constructed
+  ✔  ML model inference complete
+
+  ┌─ Summary ──────────────────────────────────────────────────┐
+  │  Quality Score    74 / 100    ↓ 3 from last snapshot       │
+  │  Critical Issues  2                                         │
+  │  Warnings         11                                        │
+  │  Dependency Risks 4  (1 high, 3 medium)                    │
+  └────────────────────────────────────────────────────────────┘
+
+  CRITICAL  src/core/pipeline.py:204
+            Cyclomatic complexity 38 — refactor recommended
+
+  CRITICAL  package.json
+            lodash@4.17.20 has known CVE-2021-23337 (high severity)
+
+  Run `buildsense report` to open the full HTML report.
+```
+
+---
+
+## 📡 API Reference
+
+The BuildSense backend exposes a REST API. All endpoints return JSON.
+
+### `POST /api/analyse`
+
+Start a new analysis job.
+
+**Request body:**
 
 ```json
 {
-  "cost_estimate": {
-    "total": "₹1.82 Cr",
-    "material": "₹98L",
-    "labour": "₹52L",
-    "overhead": "₹18L",
-    "contingency": "₹14L"
-  },
-  "timeline_months": 16,
-  "dcs_score": 76,
-  "dcs_label": "High Confidence — Safe to Proceed",
-  "risk_warnings": [
-    {
-      "type": "foundation",
-      "severity": "medium",
-      "message": "Alluvial soil detected. Recommend geotechnical survey as Phase 0."
-    }
-  ]
+  "path": "/absolute/path/to/project",
+  "options": {
+    "include_deps": true,
+    "min_complexity_threshold": 10,
+    "ignore_patterns": ["**/node_modules/**", "**/__pycache__/**"]
+  }
+}
+```
+
+**Response:**
+
+```json
+{
+  "job_id": "a3f9c821-...",
+  "status": "queued",
+  "created_at": "2026-03-24T10:00:00Z"
 }
 ```
 
 ---
 
-## 👥 Target Users
+### `GET /api/analyse/{job_id}`
 
-| User | Use Case |
-|---|---|
-| 👷 Civil Engineers & Structural Consultants | Rapid feasibility estimation |
-| 📋 Construction Project Managers | Scheduling, workforce & budget alignment |
-| 🏢 Real Estate Developers | Early-stage investment decision support |
-| 🏛️ Government Infrastructure Teams | Cost benchmarking for tenders |
-| 🎓 Fresh Graduates & Junior Engineers | Expert-level guidance without years of experience |
+Poll the status of an analysis job.
+
+**Response:**
+
+```json
+{
+  "job_id": "a3f9c821-...",
+  "status": "complete",
+  "score": 74,
+  "issues": [...],
+  "dependency_risks": [...],
+  "completed_at": "2026-03-24T10:00:18Z"
+}
+```
 
 ---
 
-## 🆚 Competitive Differentiation
+### `POST /api/diagnose`
 
-Existing tools like **CostX**, **Candy**, or **Excel-based estimators** are static, manual, and disconnected.
+Diagnose a build log.
 
-| Capability | CostX / Candy / Excel | **BuildSense AI** |
-|---|---|---|
-| Estimate generation time | 3–7 days | ✅ Under 60 seconds |
-| Confidence scoring | ❌ None | ✅ Decision Confidence Score |
-| Proactive risk alerts | ❌ None | ✅ Auto-triggered on input |
-| What-if scenario engine | ❌ Manual re-entry | ✅ Real-time side-by-side |
-| Grounded in IS codes | ❌ Manual lookup | ✅ RAG-powered |
-| AI reasoning transparency | ❌ Black box | ✅ DCS + explainability |
+**Request body:**
+
+```json
+{
+  "log": "<raw build log text>",
+  "context": {
+    "language": "python",
+    "build_tool": "pytest"
+  }
+}
+```
+
+**Response:**
+
+```json
+{
+  "root_cause": "ImportError in src/utils/loader.py — circular import with src/core/pipeline.py",
+  "likely_commit": "abc1234",
+  "suggested_fix": "Move shared types to a separate src/types.py module to break the cycle.",
+  "confidence": 0.91
+}
+```
+
+---
+
+### `GET /api/snapshots`
+
+List all stored analysis snapshots for comparison.
+
+---
+
+### `GET /api/snapshots/{snapshot_id}/diff`
+
+Return a structured diff between two snapshots.
+
+**Query params:** `compare_to=<snapshot_id>`
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how to get started:
+Contributions are very welcome! Here's how to get started.
 
-1. **Fork** the repository
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. **Make your changes** and add tests where applicable
-4. **Commit** with a clear message
-   ```bash
-   git commit -m "feat: add monsoon risk detection for Zone 3"
-   ```
-5. **Push** and open a **Pull Request**
+### Development setup
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for code style guidelines and our review process.
+```bash
+# Fork and clone
+git clone https://github.com/YOUR_USERNAME/BuildSense.git
+cd BuildSense
+
+# Install dev dependencies
+pip install -r requirements-dev.txt
+
+cd frontend && npm install && cd ..
+```
+
+### Running tests
+
+```bash
+# Python tests
+pytest tests/ -v
+
+# Frontend tests
+cd frontend && npm test
+```
+
+### Submitting a PR
+
+1. **Create a branch** from `main` — use a descriptive name like `feat/add-go-support` or `fix/dependency-scorer-edge-case`
+2. **Make your changes** — keep commits focused and atomic
+3. **Add or update tests** — PRs that reduce test coverage will not be merged
+4. **Run the full test suite** and make sure everything passes
+5. **Open a Pull Request** — describe what you changed and why
+
+### Reporting issues
+
+Please use [GitHub Issues](https://github.com/DeepTensor-3070/BuildSense/issues) and include:
+- BuildSense version (`buildsense --version`)
+- Python and Node versions
+- Steps to reproduce
+- Expected vs actual behaviour
+- Relevant logs or error output
 
 ---
 
@@ -350,55 +373,39 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for code style guidelines and our
 
 ```
 BuildSense/
-├── app/
-│   ├── main.py              # FastAPI entry point
-│   ├── api/
-│   │   └── v1/
-│   │       ├── estimate.py  # Cost estimation endpoints
-│   │       ├── scenario.py  # What-if engine endpoints
-│   │       └── risk.py      # Risk warning endpoints
-│   ├── core/
-│   │   ├── llm.py           # LLM integration (LLaMA / GPT-4o)
-│   │   ├── rag.py           # RAG pipeline + FAISS retriever
-│   │   └── dcs.py           # Decision Confidence Score logic
-│   └── models/
-│       └── schemas.py       # Pydantic data models
-├── frontend/
-│   └── app.py               # Streamlit dashboard
-├── data/
-│   ├── is_codes/            # Indian Standard construction docs
-│   └── faiss_index/         # Pre-built vector index
-├── scripts/
-│   ├── init_db.py           # DB initialization
-│   └── build_index.py       # FAISS index builder
-├── docker-compose.yml
-├── Dockerfile
+├── buildsense/           # Core Python package
+│   ├── analyser/         # Static & ML-based code analysis
+│   ├── diagnostics/      # Build log diagnosis engine
+│   ├── dependencies/     # Dependency risk scoring
+│   ├── server/           # FastAPI/Flask REST API
+│   └── models/           # Trained ML model files
+├── frontend/             # React dashboard
+│   ├── src/
+│   │   ├── components/   # UI components
+│   │   ├── pages/        # Route-level pages
+│   │   └── api/          # API client hooks
+│   └── public/
+├── tests/                # Python test suite
 ├── requirements.txt
-├── .env.example
-└── README.md
+├── requirements-dev.txt
+├── Makefile
+└── .env.example
 ```
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🏆 Acknowledgements
-
-Built with ❤️ by **Team Pragnix** for **AI ARENA 2026**.
-
-Special thanks to the open-source communities behind FastAPI, Streamlit, LangChain, FAISS, and the LLaMA project.
+BuildSense is released under the [MIT License](LICENSE).
 
 ---
 
 <div align="center">
 
-**BuildSense** · Team Pragnix · AI ARENA 2026
+Built with ❤️ by [DeepTensor-3070](https://github.com/DeepTensor-3070) and contributors.
 
-*Turning construction expertise into an AI that every engineer can access.*
+<br />
+
+⭐ **If BuildSense helps you, give the repo a star — it means a lot.**
 
 </div>
- 
