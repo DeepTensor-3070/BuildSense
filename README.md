@@ -22,7 +22,7 @@
 
 <br/>
 
-![BuildSense AI Dashboard](https://via.placeholder.com/900x420/0a0c10/00d4ff?text=BuildSense+AI+%E2%80%94+Dashboard+Preview)
+
 
 </div>
 
@@ -257,7 +257,7 @@ Open **two terminals** from the project root.
 ### Terminal 1 — Start the FastAPI Backend
 
 ```bash
-cd api
+cd backend
 uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 
