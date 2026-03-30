@@ -19,7 +19,6 @@ app = FastAPI(
     version="1.0",
 )
 
-# ── CORS ─────────────────────────────────────
 # Allow the Streamlit frontend (any local origin) to reach the API
 app.add_middleware(
     CORSMiddleware,
@@ -29,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ── INPUT SCHEMA ──────────────────────────────
+# INPUT SCHEMA 
 class ProjectInput(BaseModel):
     area: float
     material_quality: int
@@ -51,7 +50,7 @@ class ProjectInput(BaseModel):
     efficiency: float
 
 
-# ── VALIDATION HELPER ─────────────────────────
+# VALIDATION HELPER 
 def validate_result(result):
     required = ["estimated_cost", "estimated_time", "dcs_score"]
     for key in required:
@@ -59,7 +58,7 @@ def validate_result(result):
             raise ValueError(f"Invalid model output: missing '{key}'")
 
 
-# ── ROUTES ────────────────────────────────────
+# ROUTES 
 
 @app.get("/")
 def home():
@@ -72,7 +71,7 @@ def health():
     return {"status": "ok", "message": "BuildSense AI API is healthy"}
 
 
-# ── SINGLE PREDICTION ─────────────────────────
+# SINGLE PREDICTION 
 @app.post("/predict")
 def predict(data: ProjectInput):
     try:
@@ -113,7 +112,7 @@ def predict(data: ProjectInput):
         }
 
 
-# ── MULTI WHAT-IF ENGINE ──────────────────────
+# MULTI WHAT-IF ENGINE 
 @app.post("/multi-what-if")
 def multi_what_if(data: dict):
     try:
@@ -183,7 +182,7 @@ def multi_what_if(data: dict):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-# ── CHAT ──────────────────────────────────────
+# CHAT 
 @app.post("/chat")
 def chat(data: dict):
     user_input = data.get("message", "")
@@ -199,7 +198,7 @@ def chat(data: dict):
         return {"status": "error", "response": "", "message": str(e)}
 
 
-# ── AI COPILOT ────────────────────────────────
+# AI COPILOT 
 @app.post("/copilot")
 def copilot(data: dict):
     try:

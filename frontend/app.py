@@ -4,18 +4,16 @@ import pandas as pd
 import json
 import time
 
-# ─────────────────────────────────────────────
+
 # CONFIG
-# ─────────────────────────────────────────────
 API_BASE   = "http://127.0.0.1:8000"
 API_PREDICT = f"{API_BASE}/predict"
 API_MULTI   = f"{API_BASE}/multi-what-if"
 API_CHAT    = f"{API_BASE}/chat"
 API_COPILOT = f"{API_BASE}/copilot"
 
-# ─────────────────────────────────────────────
+
 # PAGE CONFIG
-# ─────────────────────────────────────────────
 st.set_page_config(
     page_title="BuildSense AI",
     layout="wide",
@@ -23,9 +21,7 @@ st.set_page_config(
     page_icon="🏗️",
 )
 
-# ─────────────────────────────────────────────
 # GLOBAL CSS  — dark industrial + neon accent
-# ─────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Rajdhani:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
@@ -316,9 +312,7 @@ header    { display:none; }
 </style>
 """, unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
 # HELPERS
-# ─────────────────────────────────────────────
 def api_post(url, payload, timeout=15):
     try:
         r = requests.post(url, json=payload, timeout=timeout)
@@ -363,9 +357,7 @@ def simple_bar_html(val, max_val, cls):
   <div class="progress-fill {cls}" style="width:{pct}%"></div>
 </div>"""
 
-# ─────────────────────────────────────────────
 # SESSION STATE
-# ─────────────────────────────────────────────
 defaults = {
     "result": None,
     "result_full": None,
@@ -378,9 +370,7 @@ for k, v in defaults.items():
     if k not in st.session_state:
         st.session_state[k] = v
 
-# ─────────────────────────────────────────────
 # SIDEBAR
-# ─────────────────────────────────────────────
 with st.sidebar:
     # Logo
     st.markdown('<div class="header-logo">⬡ BuildSense</div>', unsafe_allow_html=True)
@@ -435,9 +425,7 @@ base_payload = {
     "efficiency": efficiency,
 }
 
-# ─────────────────────────────────────────────
 # HEADER
-# ─────────────────────────────────────────────
 col_h1, col_h2 = st.columns([3, 1])
 with col_h1:
     st.markdown('<div class="header-logo" style="font-size:2.6rem">⬡ BuildSense AI</div>', unsafe_allow_html=True)
@@ -450,9 +438,7 @@ with col_h2:
 
 st.markdown("---")
 
-# ─────────────────────────────────────────────
 # TABS
-# ─────────────────────────────────────────────
 tab_dash, tab_predict, tab_whatif, tab_chat, tab_copilot = st.tabs([
     "📊  DASHBOARD",
     "🔮  PREDICT",
@@ -461,15 +447,13 @@ tab_dash, tab_predict, tab_whatif, tab_chat, tab_copilot = st.tabs([
     "🤖  COPILOT",
 ])
 
-# ══════════════════════════════════════════════
 # TAB 1 — DASHBOARD
-# ══════════════════════════════════════════════
 with tab_dash:
     st.markdown("## Analytics Dashboard")
 
     has_data = st.session_state.result is not None
 
-    # ── KPI Row ──────────────────────────────
+    # KPI Row 
     r = st.session_state.result or {}
     full = st.session_state.result_full or {}
 
@@ -494,7 +478,7 @@ with tab_dash:
 
     st.markdown("---")
 
-    # ── Two columns layout ────────────────────
+    #Two columns layout 
     left, right = st.columns([3, 2], gap="medium")
 
     with left:
@@ -634,9 +618,7 @@ with tab_dash:
     else:
         st.markdown('<div class="bs-card" style="color:var(--text2)">Run What-If analysis to see scenario comparison.</div>', unsafe_allow_html=True)
 
-# ══════════════════════════════════════════════
 # TAB 2 — PREDICT
-# ══════════════════════════════════════════════
 with tab_predict:
     st.markdown("## Base Project Prediction")
     st.markdown('<div class="label-sm" style="margin-bottom:1rem">Configure inputs in the sidebar, then run the analysis.</div>', unsafe_allow_html=True)
@@ -738,9 +720,7 @@ with tab_predict:
   </div>
 </div>""", unsafe_allow_html=True)
 
-# ══════════════════════════════════════════════
 # TAB 3 — WHAT-IF
-# ══════════════════════════════════════════════
 with tab_whatif:
     st.markdown("## Multi-Scenario What-If Engine")
     st.markdown('<div class="label-sm" style="margin-bottom:1rem">Build multiple project scenarios and compare their outcomes side-by-side.</div>', unsafe_allow_html=True)
@@ -934,9 +914,7 @@ with tab_chat:
             st.session_state.chat_history = []
             st.rerun()
 
-# ══════════════════════════════════════════════
 # TAB 5 — COPILOT
-# ══════════════════════════════════════════════
 with tab_copilot:
     st.markdown("## AI Copilot — Scenario Optimizer")
     st.markdown('<div class="label-sm" style="margin-bottom:1rem">The Copilot ranks all your What-If scenarios against your goal and recommends the best path forward.</div>', unsafe_allow_html=True)
@@ -1063,9 +1041,7 @@ with tab_copilot:
             st.markdown('<div class="section-title">AI Deep Analysis</div>', unsafe_allow_html=True)
             st.markdown(f'<div class="bs-card bs-card-accent" style="font-size:0.87rem;line-height:1.7">{llm_exp}</div>', unsafe_allow_html=True)
 
-# ─────────────────────────────────────────────
 # FOOTER
-# ─────────────────────────────────────────────
 st.markdown("---")
 fc1, fc2, fc3 = st.columns(3)
 fc1.markdown('<div class="label-sm">⬡ BuildSense AI &nbsp;·&nbsp; v1.0</div>', unsafe_allow_html=True)
